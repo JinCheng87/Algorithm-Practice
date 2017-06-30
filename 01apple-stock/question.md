@@ -1,5 +1,5 @@
 # Writing programming interview questions hasn't made me rich. Maybe trading Apple stocks will.
-## Suppose we could access yesterday's stock prices as an array, where:
+ Suppose we could access yesterday's stock prices as an array, where:
 
  The indices are the time in minutes past trade opening time, which was 9:30am local time.
  The values are the price in dollars of Apple stock at that time.
@@ -11,7 +11,6 @@
 
  var stockPricesYesterday = [10, 7, 5, 8, 11, 9];
 
- getMaxProfit(stockPricesYesterday);
- // returns 6 (buying for $5 and selling for $11)
+ getMaxProfit(stockPricesYesterday); // returns 6 (buying for $5 and selling for $11)
 
-# No "shorting"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass)
+ No "shorting"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass)
