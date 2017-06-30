@@ -1,14 +1,42 @@
-### Write a class TempTracker with these methods:
+function Temperature(){
+  this.maxTemp = -1;
+  this.minTemp = 112;
+  this.tempSum = 0;
+  this.tempCount = 0;
+  this.tempArray = [];
+  this.mostFreq = 0;
+  this.mostFreqTemp = -1;
+  for(let i = 0; i < 111; i++) {this.tempArray[i] = 0;}
+}
+Temperature.prototype.insertTemp = function(temp){
+    if(temp > this.maxTemp) this.maxTemp = temp;
+    if(temp < this.minTemp) this.minTemp = temp;
+    this.tempSum += temp;
+    this.tempCount ++;
+    this.tempArray[temp]++;
+    if (this.mostFreq < this.tempArray[temp]){
+      this.mostFreq = this.tempArray[temp];
+      this.mostFreqTemp = temp;
+    }
+};
 
-insert()—records a new temperature
-getMax()—returns the highest temp we've seen so far
-getMin()—returns the lowest temp we've seen so far
-getMean()—returns the mean ↴ of all temps we've seen so far
-getMode()—returns a mode ↴ of all temps we've seen so far
-Optimize for space and time. Favor speeding up the getter functions getMax(), getMin(), getMean(), and getMode() over speeding up the insert() function.
+Temperature.prototype.getMax =function(){
+  return this.maxTemp;
+};
+Temperature.prototype.getMin = function(){
+  return this.minTemp;
+};
+Temperature.prototype.getMean = function(){
+  return Math.round(this.tempSum/this.tempCount);
+};
+Temperature.prototype.getMod = function(){
+    return this.mostFreqTemp;
+};
 
-Temperatures will all be inserted as integers. We'll record our temperatures in Fahrenheit, so we can assume they'll all be in the range 0..1100..110.
-
-If there is more than one mode, return any of the modes.
-
-Make every function O(1)
+temp = new Temperature();
+temp.insertTemp(10);
+temp.insertTemp(20);
+temp.insertTemp(20);
+console.log(temp.getMax());
+console.log(temp.getMin());
+console.log(temp.getMean())
